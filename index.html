@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mochileros Sin Fronteras – Home</title>
+  <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="brand">
+    <img src="images/logo.png" alt="Logo Mochileros Sin Fronteras" class="logo">
+    <h1>Mochileros Sin Fronteras</h1>
+  </div>
+
+  <nav aria-label="Principal" class="nav">
+    <ul>
+      <li><a href="index.html" class="active">Inicio</a></li>
+      <li><a href="#">Experiencias</a></li>
+      <li><a href="#">Consejos</a></li>
+      <li><a href="#">Foro</a></li>
+      <li><a href="#">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <div class="lang-block">
+    <img src="images/logo.png" alt="" class="mini-logo" aria-hidden="true">
+    <label for="lang" class="sr-only">Idioma</label>
+    <select id="lang">
+      <option>Español</option>
+      <option>English</option>
+      <option>Français</option>
+    </select>
+  </div>
+</header>
+
+<main class="layout">
+  <!-- Columna izquierda: 2/3 -->
+  <section class="left">
+    <!-- Bloque superior: banner + carrusel (no funcional) -->
+    <section class="hero">
+      <div class="hero-text">
+        <h2>Viaja ligero, vive grande</h2>
+        <p>Rutas verificadas por mochileros reales y packs listos para salir.</p>
+      </div>
+    </section>
+
+    <section class="carousel" aria-label="Packs de viaje recomendados">
+      <header class="section-header">
+        <h3>Packs de viaje recomendados</h3>
+        <div class="arrows" aria-hidden="true">
+          <button class="arrow" type="button">‹</button>
+          <button class="arrow" type="button">›</button>
+        </div>
+      </header>
+
+      <ul class="cards scroll">
+        <li class="card">
+          <img src="images/pack_andes.jpg" alt="Pack Andes: trekking en Perú y Bolivia">
+          <h4>Andes esenciales (10 días)</h4>
+          <p>Cusco, Valle Sagrado, Lago Titicaca. Transporte local y alojamientos básicos incluidos.</p>
+          <div class="price-row">
+            <strong>€489</strong>
+            <a class="btn" href="version-c.html">Comprar</a>
+          </div>
+        </li>
+        <li class="card">
+          <img src="images/pack_sahara.jpg" alt="Pack Sahara: ruta por desierto marroquí">
+          <h4>Sahara en ruta (7 días)</h4>
+          <p>Marrakech, Ait Ben Hadu y vivac en Erg Chebbi con guía local.</p>
+          <div class="price-row">
+            <strong>€349</strong>
+            <a class="btn" href="version-c.html">Comprar</a>
+          </div>
+        </li>
+        <li class="card">
+          <img src="images/pack_himalaya.jpg" alt="Pack Himalaya: senderismo suave en Nepal">
+          <h4>Himalaya fácil (8 días)</h4>
+          <p>Katmandú y Poon Hill. Ritmo tranquilo y casas de té.</p>
+          <div class="price-row">
+            <strong>€590</strong>
+            <a class="btn" href="version-c.html">Comprar</a>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Bloque inferior: cuadrícula de experiencias -->
+    <section class="experiencias">
+      <h3>Experiencias de la comunidad</h3>
+      <div class="grid">
+        <article class="exp-card">
+          <img src="images/experiencias/portugal-costa.jpg" alt="Acantilados en Costa Vicentina, Portugal">
+          <h4>Costa Vicentina en bus</h4>
+          <a class="btn small" href="version-a.html">Ver más</a>
+          <button class="like" aria-label="Me gusta">♥</button>
+        </article>
+        <article class="exp-card">
+          <img src="images/experiencias/laos-rio.jpg" alt="Cueva y río en Vang Vieng, Laos">
+          <h4>Río Nam Song en Laos</h4>
+          <a class="btn small" href="version-a.html">Ver más</a>
+          <button class="like" aria-label="Me gusta">♥</button>
+        </article>
+        <article class="exp-card">
+          <img src="images/experiencias/islandia.jpg" alt="Cascada en Islandia">
+          <h4>Ring Road con presupuesto</h4>
+          <a class="btn small" href="version-a.html">Ver más</a>
+          <button class="like" aria-label="Me gusta">♥</button>
+        </article>
+        <article class="exp-card">
+          <img src="images/experiencias/jordan.jpg" alt="Petra, Jordania">
+          <h4>De Ammán a Petra</h4>
+          <a class="btn small" href="version-a.html">Ver más</a>
+          <button class="like" aria-label="Me gusta">♥</button>
+        </article>
+      </div>
+    </section>
+  </section>
+
+  <!-- Barra lateral derecha: 1/3 -->
+  <aside class="right">
+    <section class="login">
+      <h3>Acceso</h3>
+      <form action="version-b.html" method="get">
+        <label for="u">Usuario</label>
+        <input id="u" name="u" type="text" required>
+
+        <label for="p">Contraseña</label>
+        <input id="p" name="p" type="password" required>
+
+        <label class="chk">
+          <input type="checkbox" name="remember"> Recordar credenciales
+        </label>
+
+        <button class="btn full" type="submit">Iniciar sesión</button>
+      </form>
+
+      <a class="btn outline full" href="version-a.html">Registro</a>
+    </section>
+
+    <section>
+      <h3>Top destinos mochileros</h3>
+      <ul class="link-list">
+        <li><a href="#">Tailandia</a></li>
+        <li><a href="#">Portugal</a></li>
+        <li><a href="#">Perú</a></li>
+        <li><a href="#">Marruecos</a></li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>Consejos rápidos</h3>
+      <ul class="link-list">
+        <li><a href="#">Lleva seguro médico internacional</a></li>
+        <li><a href="#">Consulta visados con antelación</a></li>
+        <li><a href="#">Haz copia de tu pasaporte</a></li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>Próximos encuentros</h3>
+      <ul class="link-list">
+        <li><a href="#">Quedada Madrid – 28/09</a></li>
+        <li><a href="#">Taller de mochilas – 05/10</a></li>
+        <li><a href="#">Salida Sierra – 12/10</a></li>
+      </ul>
+    </section>
+  </aside>
+</main>
+
+<footer class="site-footer">
+  <small>© 2025 Mochileros Sin Fronteras</small>
+  <nav aria-label="Enlaces legales" class="footer-links">
+    <a href="#">Sobre nosotros</a>
+    <a href="#">Política de privacidad</a>
+    <a href="#">Ayuda</a>
+  </nav>
+  <form class="newsletter" action="#" method="post">
+    <label for="news-email">Suscríbete a la newsletter</label>
+    <input id="news-email" type="email" name="email" placeholder="tu@email.com" required>
+    <button class="btn">Suscribirme</button>
+  </form>
+  <div class="social" aria-label="Redes sociales">
+    <a href="#" aria-label="Instagram">IG</a>
+    <a href="#" aria-label="TikTok">TT</a>
+    <a href="#" aria-label="YouTube">YT</a>
+  </div>
+</footer>
+</body>
+</html>

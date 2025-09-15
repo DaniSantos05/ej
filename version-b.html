@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mochileros – Sesión iniciada</title>
+  <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="brand"><img src="images/logo.png" alt="" class="logo"><h1>Mochileros Sin Fronteras</h1></div>
+  <nav class="nav"><ul><li><a href="index.html">Inicio</a></li><li><a href="#">Experiencias</a></li><li><a href="#">Consejos</a></li><li><a href="#">Foro</a></li><li><a href="#">Contacto</a></li></ul></nav>
+  <div class="lang-block"><select><option>Español</option><option>English</option></select></div>
+</header>
+
+<main class="layout">
+  <section class="left">
+    <!-- Puedes reutilizar bloques de index.html si quieres -->
+    <section class="hero alt"><div class="hero-text"><h2>¡Hola, viajero!</h2><p>Explora y filtra nuevas experiencias.</p></div></section>
+    <section class="experiencias"><h3>Experiencias destacadas</h3>
+      <div class="grid">
+        <article class="exp-card"><img src="images/experiencias/portugal-costa.jpg" alt=""><h4>Costa Vicentina</h4><a class="btn small" href="#">Abrir</a><button class="like" aria-label="Me gusta">♥</button></article>
+        <article class="exp-card"><img src="images/experiencias/laos-rio.jpg" alt=""><h4>Laos en río</h4><a class="btn small" href="#">Abrir</a><button class="like" aria-label="Me gusta">♥</button></article>
+      </div>
+    </section>
+  </section>
+
+  <aside class="right">
+    <section class="profile">
+      <h3>Tu perfil</h3>
+      <img class="avatar" src="images/logo.png" alt="Imagen de perfil">
+      <p class="user-name">Usuario registrado</p>
+      <button class="btn outline full" type="button">Cerrar sesión</button>
+    </section>
+
+    <section class="filters">
+      <h3>Busca experiencias</h3>
+      <div class="chk-list">
+        <label><input type="checkbox"> Europa</label>
+        <label><input type="checkbox"> Asia</label>
+        <label><input type="checkbox"> África</label>
+        <label><input type="checkbox"> América</label>
+      </div>
+      <label for="q" class="sr-only">Buscar</label>
+      <div class="search">
+        <input id="q" type="search" placeholder="Palabras clave">
+        <button type="button" aria-label="Buscar">🔍</button>
+      </div>
+    </section>
+
+    <section class="tips">
+      <h3>Últimos consejos</h3>
+      <ul class="link-list">
+        <li><a href="#">Cómo optimizar el peso de la mochila</a></li>
+        <li><a href="#">Apps offline para mapas</a></li>
+        <li><a href="#">Cambiar dinero sin comisiones</a></li>
+      </ul>
+      <form class="mini-form" action="#" method="post">
+        <label for="t">¿Tienes algún consejo?</label>
+        <input id="t" placeholder="Título">
+        <textarea rows="3" placeholder="Descripción"></textarea>
+        <button class="btn full">Enviar</button>
+      </form>
+    </section>
+
+    <section class="mini-cal">
+      <h3>Mini calendario</h3>
+      <div class="calendar" aria-hidden="true">Cal • • •</div>
+    </section>
+  </aside>
+</main>
+
+<footer class="site-footer"><small>© 2025 Mochileros Sin Fronteras</small></footer>
+</body>
+</html>

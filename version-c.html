@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Comprar pack – Mochileros</title>
+  <link rel="stylesheet" href="style/style.css">
+</head>
+<body class="single">
+<header class="site-header compact">
+  <a href="index.html" class="brand-link">← Seguir explorando</a>
+  <h1>Compra de pack</h1>
+</header>
+
+<main class="two-cols">
+  <section class="product">
+    <img src="images/pack_andes.jpg" alt="Pack Andes">
+    <h2>Andes esenciales (10 días)</h2>
+    <p>Incluye rutas en Cusco, Valle Sagrado y Lago Titicaca. Alojamiento básico y transporte interno.</p>
+    <p class="price-xl">€489</p>
+  </section>
+
+  <section class="checkout">
+    <form class="form-card" action="#" method="post">
+      <h3>Datos de compra</h3>
+      <label for="n">Nombre</label>
+      <input id="n" required>
+
+      <label for="ce">Correo electrónico</label>
+      <input id="ce" type="email" required>
+
+      <label for="tt">Tipo de tarjeta</label>
+      <select id="tt" required>
+        <option>Visa</option>
+        <option>Mastercard</option>
+        <option>American Express</option>
+      </select>
+
+      <label for="num">Número de tarjeta</label>
+      <input id="num" inputmode="numeric" pattern="[0-9 ]{12,19}" required>
+
+      <label for="tit">Titular</label>
+      <input id="tit" required>
+
+      <label for="cad">Caducidad</label>
+      <input id="cad" placeholder="MM/AA" required>
+
+      <label for="cvv">CVV</label>
+      <input id="cvv" inputmode="numeric" pattern="[0-9]{3,4}" required>
+
+      <div class="row">
+        <button class="btn" type="submit">Comprar</button>
+        <button class="btn outline" type="reset">Borrar</button>
+      </div>
+    </form>
+  </section>
+</main>
+
+<footer class="site-footer compact"><small>© 2025 Mochileros Sin Fronteras</small></footer>
+</body>
+</html>

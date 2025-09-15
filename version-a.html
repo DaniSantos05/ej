@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Registro – Mochileros Sin Fronteras</title>
+  <link rel="stylesheet" href="style/style.css">
+</head>
+<body class="single">
+<header class="site-header compact">
+  <a href="index.html" class="brand-link">← Volver a Home</a>
+  <h1>Registro</h1>
+</header>
+
+<main class="single-container">
+  <form class="form-card" action="version-b.html" method="get">
+    <div class="grid-2">
+      <div>
+        <label for="nombre">Nombre</label>
+        <input id="nombre" name="nombre" required>
+      </div>
+      <div>
+        <label for="apellidos">Apellidos</label>
+        <input id="apellidos" name="apellidos" required>
+      </div>
+
+      <div>
+        <label for="email">Correo electrónico</label>
+        <input id="email" name="email" type="email" required>
+      </div>
+      <div>
+        <label for="email2">Confirmación de correo</label>
+        <input id="email2" name="email2" type="email" required>
+      </div>
+
+      <div>
+        <label for="fecha">Fecha de nacimiento</label>
+        <input id="fecha" name="fecha" type="date" required>
+      </div>
+      <div>
+        <label for="login">Login</label>
+        <input id="login" name="login" required>
+      </div>
+
+      <div>
+        <label for="pass">Password</label>
+        <input id="pass" name="pass" type="password" required>
+      </div>
+      <div>
+        <label for="foto">Subir imagen de perfil</label>
+        <input id="foto" name="foto" type="file" accept="image/*">
+      </div>
+    </div>
+
+    <label class="chk">
+      <input type="checkbox" required> Acepto la
+      <a href="#">política de privacidad</a>
+    </label>
+
+    <button class="btn full" type="submit">Guardar datos y acceder</button>
+  </form>
+</main>
+
+<footer class="site-footer compact">
+  <small>© 2025 Mochileros Sin Fronteras</small>
+</footer>
+</body>
+</html>
