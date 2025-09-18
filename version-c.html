@@ -8,13 +8,44 @@
 </head>
 <body class="single">
 <header class="site-header compact">
-  <a href="index.html" class="brand-link">← Seguir explorando</a>
-  <h1>Compra de pack</h1>
-</header>
+  <div class="brand">
+    <h1 style="font-size:5.2rem;line-height:1;margin:0">Mochileros Sin Fronteras</h1>
+  </div>
+
+  <nav aria-label="Principal" class="nav">
+    <ul>
+      <li><a href="index.html" class="active">Inicio</a></li>
+      <li><a href="#">Experiencias</a></li>
+      <li><a href="#">Consejos</a></li>
+      <li><a href="#">Foro</a></li>
+      <li><a href="#">Contacto</a></li>
+    </ul>
+  </nav>
+
+    <div class="header-right">
+    <img src="images/logo.jpeg" alt="Logo" class="mini-logo-right" aria-hidden="true">
+    <div class="lang-block">
+      <label for="lang" class="sr-only">Idioma</label>
+      <select id="lang" style="font-size:2.2rem;padding:.45rem .7rem">
+        <option>ES</option>
+        <option>EN</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Enlace centrado debajo del nav y encima del contenido -->
+  </header>
+
+  <!-- Enlace fuera del header, centrado (posición señalada por el usuario) -->
+  <div class="back-home">
+    <a href="index.html">← Volver a Home</a>
+  </div>
+
+<h1>Compra de pack</h1>
 
 <main class="two-cols">
   <section class="product">
-    <img src="images/pack_andes.jpg" alt="Pack Andes">
+    <img src="images/pack_andes.jpeg" alt="Pack Andes">
     <h2>Andes esenciales (10 días)</h2>
     <p>Incluye rutas en Cusco, Valle Sagrado y Lago Titicaca. Alojamiento básico y transporte interno.</p>
     <p class="price-xl">€489</p>
@@ -56,6 +87,40 @@
   </section>
 </main>
 
-<footer class="site-footer compact"><small>© 2025 Mochileros Sin Fronteras</small></footer>
+<footer class="site-footer" style="font-size:2.2rem">
+  <div class="footer-left">
+    <small>© 2025 Mochileros Sin Fronteras</small>
+  </div>
+
+  <nav aria-label="Enlaces legales" class="footer-center">
+    <a href="#">Sobre nosotros</a>
+    <a href="#">Política de privacidad</a>
+    <a href="#">Ayuda</a>
+  </nav>
+
+  <form class="newsletter" action="#" method="post">
+    <label for="news-email">Suscríbete a la newsletter</label>
+    <input id="news-email" type="email" name="email" placeholder="tu@email.com" required>
+    <button class="btn">Suscribirme</button>
+  </form>
+
+  <div class="footer-right">
+    <a href="#" class="icon-link" aria-label="Instagram">
+      <img src="images/icons/instagram.png" alt="Instagram">
+    </a>
+    <a href="#" class="icon-link" aria-label="TikTok">
+      <img src="images/icons/tik-tok.png" alt="TikTok">
+    </a>
+    <a href="#" class="icon-link" aria-label="YouTube">
+      <img src="images/icons/youtube.png" alt="YouTube">
+    </a>
+  </div>
+</footer>
 </body>
 </html>
+
+
+
+
+
+

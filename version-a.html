@@ -8,11 +8,39 @@
 </head>
 <body class="single">
 <header class="site-header compact">
-  <a href="index.html" class="brand-link">← Volver a Home</a>
-  <h1>Registro</h1>
-</header>
+  <div class="brand">
+    <h1 style="font-size:5.2rem;line-height:1;margin:0">Mochileros Sin Fronteras</h1>
+  </div>
 
+  <nav aria-label="Principal" class="nav">
+    <ul>
+      <li><a href="index.html" class="active">Inicio</a></li>
+      <li><a href="#">Experiencias</a></li>
+      <li><a href="#">Consejos</a></li>
+      <li><a href="#">Foro</a></li>
+      <li><a href="#">Contacto</a></li>
+    </ul>
+  </nav>
+  <div class="header-right">
+    <img src="images/logo.jpeg" alt="Logo" class="mini-logo-right" aria-hidden="true">
+    <div class="lang-block">
+      <label for="lang" class="sr-only">Idioma</label>
+      <select id="lang" style="font-size:2.2rem;padding:.45rem .7rem">
+        <option>ES</option>
+        <option>EN</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Enlace centrado debajo del nav y encima del contenido -->
+  </header>
+
+  <!-- Enlace fuera del header, centrado (posición señalada por el usuario) -->
+  <div class="back-home">
+    <a href="index.html">← Volver a Home</a>
+  </div>
 <main class="single-container">
+  <h2>Registro de nuevos usuarios</h2>
   <form class="form-card" action="version-b.html" method="get">
     <div class="grid-2">
       <div>
@@ -33,36 +61,70 @@
         <input id="email2" name="email2" type="email" required>
       </div>
 
-      <div>
+      <div class="full">
         <label for="fecha">Fecha de nacimiento</label>
         <input id="fecha" name="fecha" type="date" required>
       </div>
+
       <div>
         <label for="login">Login</label>
         <input id="login" name="login" required>
       </div>
-
       <div>
         <label for="pass">Password</label>
         <input id="pass" name="pass" type="password" required>
       </div>
-      <div>
-        <label for="foto">Subir imagen de perfil</label>
+
+      <div class="full">
+        <label for="foto" style="text-align:left;display:block;margin-bottom:.35rem">Subir imagen de perfil</label>
         <input id="foto" name="foto" type="file" accept="image/*">
       </div>
     </div>
 
-    <label class="chk">
-      <input type="checkbox" required> Acepto la
-      <a href="#">política de privacidad</a>
-    </label>
+    <div class="form-actions">
+      <label class="chk">
+        <input type="checkbox" required> Acepto la
+        <a href="#">política de privacidad</a>
+      </label>
 
-    <button class="btn full" type="submit">Guardar datos y acceder</button>
+      <button class="btn submit" type="submit">Guardar datos y acceder</button>
+    </div>
   </form>
 </main>
+<footer class="site-footer" style="font-size:2.2rem">
+  <div class="footer-left">
+    <small>© 2025 Mochileros Sin Fronteras</small>
+  </div>
 
-<footer class="site-footer compact">
-  <small>© 2025 Mochileros Sin Fronteras</small>
+  <nav aria-label="Enlaces legales" class="footer-center">
+    <a href="#">Sobre nosotros</a>
+    <a href="#">Política de privacidad</a>
+    <a href="#">Ayuda</a>
+  </nav>
+
+  <form class="newsletter" action="#" method="post">
+    <label for="news-email">Suscríbete a la newsletter</label>
+    <input id="news-email" type="email" name="email" placeholder="tu@email.com" required>
+    <button class="btn">Suscribirme</button>
+  </form>
+
+  <div class="footer-right">
+    <a href="#" class="icon-link" aria-label="Instagram">
+      <img src="images/icons/instagram.png" alt="Instagram">
+    </a>
+    <a href="#" class="icon-link" aria-label="TikTok">
+      <img src="images/icons/tik-tok.png" alt="TikTok">
+    </a>
+    <a href="#" class="icon-link" aria-label="YouTube">
+      <img src="images/icons/youtube.png" alt="YouTube">
+    </a>
+  </div>
 </footer>
 </body>
 </html>
+
+
+
+
+
+
