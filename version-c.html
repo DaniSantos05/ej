@@ -116,6 +116,33 @@
     </a>
   </div>
 </footer>
+<script>
+(function(){
+  try {
+    const params = new URLSearchParams(window.location.search);
+    const img = params.get('img');
+    const title = params.get('title');
+    const price = params.get('price');
+    const product = document.querySelector('main.two-cols .product');
+    if (product) {
+      const imgEl = product.querySelector('img');
+      const titleEl = product.querySelector('h2');
+      const priceEl = product.querySelector('.price-xl');
+      if (img && imgEl) {
+        imgEl.src = img;
+      }
+      if (title && titleEl) {
+        titleEl.textContent = title;
+        if (imgEl) imgEl.alt = 'Pack ' + title;
+      }
+      if (price && priceEl) {
+        const clean = String(price).replace(/[^0-9]/g,'');
+        priceEl.textContent = (clean ? '€' + clean : price);
+      }
+    }
+  } catch (e) {}
+})();
+</script>
 </body>
 </html>
 

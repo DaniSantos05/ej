@@ -98,6 +98,21 @@ select{background:var(--card);color:var(--text);border:1px solid var(--border);p
 .link-list{margin:.3rem 0 0;padding-left:1rem}
 .login .chk{display:flex;align-items:center;gap:.5rem;margin:.5rem 0}
 
+/* Sidebar (versión B): subir tamaños de tipografías y controles */
+.right h3{font-size:2rem;margin:.2rem 0 .8rem}
+.right .profile .user-name{font-size:1.6rem;text-align:center;margin:.6rem 0 1rem}
+.right .profile .btn.outline.full{font-size:1.6rem;padding:1.1rem 1.3rem;border-radius:.7rem}
+
+.right .filters .chk-list label{font-size:1.6rem;display:inline-flex;align-items:center;gap:.5rem}
+.right .filters .search input[type="search"]{font-size:1.3rem;padding:.6rem .8rem;height:46px;border-radius:.5rem;border:1px solid var(--border);background:var(--card);color:var(--text)}
+.right .filters .search button{height:46px;padding:0 .8rem;border-radius:.5rem}
+
+.right .tips .link-list li a{font-size:1.5rem}
+.right .tips label{font-size:1.4rem;margin-bottom:.4rem;display:block}
+.right .tips input,.right .tips textarea{font-size:1.3rem;padding:.65rem .75rem;border:1px solid var(--border);background:var(--card);color:var(--text);border-radius:.5rem}
+.right .tips textarea{min-height:90px}
+.right .tips .btn.full{font-size:1.5rem;padding:.9rem 1rem;border-radius:.6rem}
+
 /* Aumentar tamaño de los botones en el bloque de login (sidebar): Iniciar sesión y Registro */
 .right .login .btn.full{font-size:1.9rem;padding:1.4rem 1.6rem;border-radius:.7rem}
 .right .login .btn.outline.full{font-size:1.6rem;padding:1.1rem 1.3rem;border-radius:.7rem}
@@ -139,9 +154,24 @@ select{background:var(--card);color:var(--text);border:1px solid var(--border);p
 .site-footer .footer-left small{font-size:1.7rem !important}
 .site-footer .footer-right .icon-link img{width:64px;height:64px}
 
+/* (newsletter styles removed to restore original footer layout) */
+
+/* Newsletter: aumentar tamaño del campo email (sin mover el layout) */
+.site-footer .newsletter input[type="email"]{
+  font-size: 1.15rem;      /* letra más grande al escribir */
+  padding: .65rem .9rem;   /* más alto y cómodo */
+  line-height: 1.2;        /* mejora legibilidad */
+}
+
+/* Newsletter: mover un poco hacia la derecha en pantallas medianas/grandes */
+@media (min-width: 721px){
+  .site-footer .newsletter{ margin-left: clamp(1.5rem, 4vw, 3rem); }
+}
+
 /* Páginas “single” y compra */
 .single .site-header.compact,.site-footer.compact{max-width:1800px;margin:0 auto}
 .single-container,.two-cols{width:calc(100% - 4rem);max-width:1800px;margin:1.25rem auto;padding:0 2rem}
+.single h1{width:calc(100% - 4rem);max-width:1800px;margin:0 auto .6rem;padding:0 2rem}
 .form-card{background:var(--panel);border:1px solid var(--border);border-radius:8px;padding:1rem 1.15rem;display:flex;flex-direction:column;gap:.65rem;max-width:760px;margin:0 auto}
 .single-container .form-card{padding:1.1rem 1.25rem}
 .form-card input, .form-card select, .form-card textarea{background:var(--card);color:var(--text);border:1px solid var(--border);border-radius:.5rem;padding:.8rem;height:56px;font-size:1.02rem}
@@ -165,10 +195,52 @@ select{background:var(--card);color:var(--text);border:1px solid var(--border);p
 .experiencias .exp-card .btn.small{margin-top:auto;background:var(--accent);color:#04131a;padding:.8rem 1rem;border-radius:.6rem;font-size:1.15rem}
 
 /* Barra lateral: agrandar avatar y compactar secciones */
-.right .profile .avatar{width:140px;height:140px;object-fit:cover;border-radius:6px;display:block;margin:0 auto}
+.right .profile .avatar{width:180px;height:180px;object-fit:cover;border-radius:8px;display:block;margin:0 auto}
+.right .profile .profile-row{display:flex;align-items:center;justify-content:space-between;gap:1.2rem}
+.right .profile .profile-row .avatar{margin:0}
+.right .profile #logout-btn{white-space:nowrap;font-size:1.35rem;padding:.85rem 1.2rem;border-radius:.7rem;border-width:2px}
 .right section{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:1rem;margin-bottom:1rem}
 .right .filters .search{display:flex;gap:.5rem;align-items:center}
+.right .profile .actions{display:flex;gap:.6rem;justify-content:flex-start;flex-wrap:wrap;margin-top:.6rem}
+.right .profile .actions .btn.outline{padding:.5rem .8rem}
+.right .filters .chk-list{display:grid;grid-template-columns:1fr 1fr;gap:.4rem .8rem;margin-bottom:.6rem}
+.right .filters .search{border:1px solid var(--border);border-radius:999px;padding:.25rem .35rem;background:var(--card)}
+.right .filters .search input{border:none;background:transparent;outline:none;width:100%}
+.right .filters .search button{background:transparent;border:0}
+
+.right .tips .mini-form .row{display:grid;grid-template-columns:1fr auto;gap:.6rem;align-items:start}
+.right .tips .mini-form .send{height:100%;padding:.5rem .9rem}
 .right .mini-cal .calendar{background:transparent;border:1px dashed var(--border);padding:1rem;text-align:center}
+
+/* Mini calendario blanco tipo maqueta */
+.right .mini-cal{
+  background: transparent !important;
+  border: 0 !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+}
+.right .mini-cal .calendar{
+  background:#ffffff;
+  color:#0b1228;
+  border:1px solid #d1d5db; /* gris claro sobre fondo blanco */
+  border-radius:1rem;
+  padding:1.1rem;
+  width:clamp(280px, 92%, 380px);
+  margin:0 auto;
+}
+.right .mini-cal .cal-header{font-weight:800;text-align:center;letter-spacing:.02em;margin-bottom:.6rem;font-size:1.15rem}
+.right .mini-cal .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:.4rem}
+.right .mini-cal .dow{font-weight:700;font-size:1rem;color:#6b7280;text-align:center;padding:.2rem 0}
+.right .mini-cal .cell{display:flex;align-items:center;justify-content:center;min-height:44px;border-radius:.5rem;font-size:1.1rem}
+.right .mini-cal .cell.today{background:#e2f7ff}
+
+@media (max-width:600px){
+  .right h3{font-size:1.6rem}
+  .right .profile .user-name{font-size:1.3rem}
+  .right .filters .chk-list label{font-size:1.3rem}
+  .right .tips .link-list li a{font-size:1.25rem}
+  .right .mini-cal .cell{min-height:36px;font-size:1rem}
+}
 
 /* Cada celda: etiqueta a la izquierda, input a la derecha */
 .form-card .grid-2 > div{display:flex;flex-direction:column;align-items:stretch;gap:.45rem}
@@ -259,6 +331,8 @@ select{background:var(--card);color:var(--text);border:1px solid var(--border);p
   .cards{grid-template-columns:1fr}
   .experiencias .grid{grid-template-columns:1fr}
   .grid-2{grid-template-columns:1fr}
+  .right .profile .avatar{width:140px;height:140px}
+  .right .profile #logout-btn{font-size:1.15rem;padding:.7rem 1rem;border-width:2px}
 
   /* Escalar tamaños en móvil para que no saturen la pantalla */
   .brand h1{font-size:2.4rem}
@@ -349,47 +423,7 @@ select{background:var(--card);color:var(--text);border:1px solid var(--border);p
 
 
 
-/* ===== Footer: newsletter pegado a la derecha + email más grande ===== */
-.site-footer .footer-center{
-  flex: 0 0 auto;         /* que el centro no “empuje” al newsletter */
-}
-
-.site-footer .newsletter{
-  margin-left: auto;      /* lo manda hacia la derecha */
-  display: flex;
-  align-items: center;
-  gap: .6rem;
-}
-
-.site-footer .newsletter label{
-  margin-right: .4rem;
-  white-space: nowrap;    /* evita que el texto salte de línea */
-}
-
-/* Input de e-mail más grande y cómodo */
-.site-footer .newsletter input[type="email"]{
-  min-width: 360px;       /* pon 320–420px a tu gusto */
-  height: 56px;           /* a juego con el resto de inputs */
-  font-size: 1.15rem;     /* sube tamaño de letra */
-  padding: 0 1rem;
-}
-
-/* Botón alineado en altura con el input */
-.site-footer .newsletter .btn{
-  height: 56px;
-  padding: 0 1.1rem;
-}
-
-/* En móviles, lo dejamos apilado y sin empujar a la derecha */
-@media (max-width: 720px){
-  .site-footer .newsletter{
-    margin-left: 0;
-    flex-wrap: wrap;
-  }
-  .site-footer .newsletter input[type="email"]{
-    min-width: 100%;
-  }
-}
+/* (newsletter-specific footer rules removed) */
 
 
 

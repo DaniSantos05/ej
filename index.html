@@ -61,7 +61,10 @@
           <p>Cusco, Valle Sagrado, Lago Titicaca. Transporte local y alojamientos básicos incluidos.</p>
           <div class="price-row">
             <strong>€489</strong>
-            <a class="btn" href="version-c.html">Comprar</a>
+            <a class="btn buy" href="version-c.html"
+               data-img="images/pack_andes.jpeg"
+               data-title="Andes esenciales (10 días)"
+               data-price="489">Comprar</a>
           </div>
         </li>
         <li class="card">
@@ -70,7 +73,10 @@
           <p>Marrakech, Ait Ben Hadu y vivac en Erg Chebbi con guía local.</p>
           <div class="price-row">
             <strong>€349</strong>
-            <a class="btn" href="version-c.html">Comprar</a>
+            <a class="btn buy" href="version-c.html"
+               data-img="images/pack_sahara.jpeg"
+               data-title="Sahara en ruta (7 días)"
+               data-price="349">Comprar</a>
           </div>
         </li>
         <li class="card">
@@ -79,7 +85,10 @@
           <p>Katmandú y Poon Hill. Ritmo tranquilo y casas de té.</p>
           <div class="price-row">
             <strong>€590</strong>
-            <a class="btn" href="version-c.html">Comprar</a>
+            <a class="btn buy" href="version-c.html"
+               data-img="images/pack_himalaya.jpeg"
+               data-title="Himalaya fácil (8 días)"
+               data-price="590">Comprar</a>
           </div>
         </li>
       </ul>
@@ -214,6 +223,27 @@
     </a>
   </div>
 </footer>
+<script>
+  // Construye la URL a version-c.html con los datos del pack
+  (function(){
+    document.querySelectorAll('a.buy[data-img]').forEach(function(a){
+      a.addEventListener('click', function(ev){
+        try{
+          const img = a.getAttribute('data-img');
+          const title = a.getAttribute('data-title') || '';
+          const price = a.getAttribute('data-price') || '';
+          if(!img) return; // que navegue al href normal
+          ev.preventDefault();
+          const params = new URLSearchParams();
+          params.set('img', img);
+          if(title) params.set('title', title);
+          if(price) params.set('price', price);
+          window.location.href = a.getAttribute('href') + '?' + params.toString();
+        }catch(e){/* fallback al href */}
+      });
+    });
+  })();
+  </script>
 </body>
 </html>
 
