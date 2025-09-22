@@ -44,42 +44,73 @@
 <h1>Compra de pack</h1>
 
 <main class="two-cols">
-  <section class="product">
-    <img src="images/pack_andes.jpeg" alt="Pack Andes">
-    <h2>Andes esenciales (10 días)</h2>
-    <p>Incluye rutas en Cusco, Valle Sagrado y Lago Titicaca. Alojamiento básico y transporte interno.</p>
-    <p class="price-xl">€489</p>
-  </section>
+  <div class="left-col">
+    <section class="product">
+      <div class="media">
+        <img src="images/pack_andes.jpeg" alt="Pack Andes" class="product-image">
+        <!-- Barra superior con título y precio -->
+        <div class="title-bar">
+          <span id="pack-title">Andes esenciales (10 días)</span>
+          <span class="price-badge" id="pack-price">€489</span>
+        </div>
+        <!-- Tarjeta breve dentro de la imagen -->
+        <div class="brief" id="pack-brief">Cusco, Valle Sagrado y Lago Titicaca. Transporte local y hostales.</div>
+      </div>
+    </section>
+
+    <!-- Recuadro independiente para la descripción larga -->
+    <section class="product-desc" aria-labelledby="desc-title">
+      <h3 class="section-label" id="desc-title">Descripción del pack</h3>
+  <p id="pack-desc">Este pack está pensado para viajeros que buscan combinar naturaleza, cultura y un ritmo de viaje relajado. A lo largo del recorrido visitarás los puntos más emblemáticos de la región, con tiempo para disfrutar de los paisajes y realizar pequeñas rutas a pie. El alojamiento es en hostales y casas locales cuidadosamente seleccionadas, y el transporte se realiza en medios públicos o privados según el tramo para optimizar tiempos. Incluye recomendaciones de comida típica, paradas panorámicas y sugerencias de actividades opcionales para que puedas personalizar cada día sin complicaciones.</p>
+    </section>
+  </div>
 
   <section class="checkout">
-    <form class="form-card" action="#" method="post">
-      <h3>Datos de compra</h3>
-      <label for="n">Nombre</label>
-      <input id="n" required>
+    <form class="form-card checkout-form" action="#" method="post">
+      <h3 class="form-title">Formulario de compra</h3>
 
-      <label for="ce">Correo electrónico</label>
-      <input id="ce" type="email" required>
+      <div class="field">
+        <label class="sr-only" for="n">Nombre completo</label>
+        <input id="n" name="n" placeholder="Nombre completo" required>
+      </div>
 
-      <label for="tt">Tipo de tarjeta</label>
-      <select id="tt" required>
-        <option>Visa</option>
-        <option>Mastercard</option>
-        <option>American Express</option>
-      </select>
+      <div class="field">
+        <label class="sr-only" for="ce">Correo electrónico</label>
+        <input id="ce" name="ce" type="email" placeholder="Correo electrónico" required>
+      </div>
 
-      <label for="num">Número de tarjeta</label>
-      <input id="num" inputmode="numeric" pattern="[0-9 ]{12,19}" required>
+      <div class="field">
+        <label for="tt">Tipo de tarjeta</label>
+        <select id="tt" name="tt" required>
+          <option>Visa</option>
+          <option>Mastercard</option>
+          <option>American Express</option>
+        </select>
+      </div>
 
-      <label for="tit">Titular</label>
-      <input id="tit" required>
+      <div class="field">
+        <label class="sr-only" for="num">Número de tarjeta</label>
+        <input id="num" name="num" inputmode="numeric" pattern="[0-9 ]{12,19}" placeholder="Número de tarjeta" required>
+      </div>
 
-      <label for="cad">Caducidad</label>
-      <input id="cad" placeholder="MM/AA" required>
+      <div class="field">
+        <label class="sr-only" for="tit">Nombre del titular de la tarjeta</label>
+        <input id="tit" name="tit" placeholder="Nombre del titular de la tarjeta" required>
+      </div>
 
-      <label for="cvv">CVV</label>
-      <input id="cvv" inputmode="numeric" pattern="[0-9]{3,4}" required>
+      <div class="row two">
+        <label class="row-label" for="cad">Fecha de caducidad</label>
+        <div class="field">
+          <input id="cad" class="exp-input" name="cad" placeholder="MM/AA" inputmode="numeric" maxlength="5" pattern="^(0[1-9]|1[0-2])\/\d{2}$" required>
+        </div>
+        <button class="cal-btn" type="button" aria-label="Abrir calendario">📅</button>
+        <div class="field">
+          <label class="sr-only" for="cvv">Código CVV</label>
+          <input id="cvv" class="cvv-input" name="cvv" inputmode="numeric" pattern="[0-9]{3,4}" placeholder="Código CVV" required>
+        </div>
+      </div>
 
-      <div class="row">
+      <div class="row actions">
         <button class="btn" type="submit">Comprar</button>
         <button class="btn outline" type="reset">Borrar</button>
       </div>
@@ -123,24 +154,149 @@
     const img = params.get('img');
     const title = params.get('title');
     const price = params.get('price');
-    const product = document.querySelector('main.two-cols .product');
-    if (product) {
-      const imgEl = product.querySelector('img');
-      const titleEl = product.querySelector('h2');
-      const priceEl = product.querySelector('.price-xl');
-      if (img && imgEl) {
-        imgEl.src = img;
-      }
-      if (title && titleEl) {
-        titleEl.textContent = title;
-        if (imgEl) imgEl.alt = 'Pack ' + title;
-      }
-      if (price && priceEl) {
-        const clean = String(price).replace(/[^0-9]/g,'');
-        priceEl.textContent = (clean ? '€' + clean : price);
+    const desc = params.get('desc');
+  const product = document.querySelector('main.two-cols .product');
+  const imgEl = product?.querySelector('img');
+  const titleEl = document.getElementById('pack-title');
+  const priceEl = document.getElementById('pack-price');
+    const descEl = document.getElementById('pack-desc');
+  const briefEl = document.getElementById('pack-brief');
+
+    if (img && imgEl) imgEl.src = img;
+    if (title && titleEl) {
+      titleEl.textContent = title;
+      if (imgEl) imgEl.alt = 'Pack ' + title;
+    }
+    if (price && priceEl) {
+      const clean = String(price).replace(/[^0-9]/g,'');
+      priceEl.textContent = (clean ? '€' + clean : price);
+    }
+
+    // Descripciones largas por pack como fallback si llega una corta
+    const longByTitle = {
+      'Andes esenciales (10 días)': 'Explora el corazón de los Andes con base en Cusco y el Valle Sagrado. Incluye caminatas por rutas clásicas, visitas a comunidades locales y travesía por el Lago Titicaca. Alojamiento en hostales sencillos, transporte interno y soporte de guías locales.',
+      'Sahara en ruta (7 días)': 'Cruza el Alto Atlas hacia el desierto de Erg Chebbi. Dormirás en jaimas bajo un cielo estrellado, visitarás kasbahs históricas como Ait Ben Hadu y recorrerás oasis y gargantas. Transporte con conductor local y vivac incluido.',
+      'Himalaya fácil (8 días)': 'Ruta de iniciación por Nepal con tiempo en Katmandú y trekking suave hasta Poon Hill. Alojamientos en casas de té, ritmos tranquilos y paisajes de ochomiles al amanecer. Ideal para una primera experiencia en altura.'
+    };
+
+    if (briefEl && desc) briefEl.textContent = desc;
+    if (descEl) {
+      // Mantener el texto por defecto (lorem) salvo que tengamos una descripción larga
+      if (title && longByTitle[title]) {
+        descEl.textContent = longByTitle[title];
+      } else if (desc) {
+        descEl.textContent = desc;
       }
     }
   } catch (e) {}
+})();
+
+// Máscara y validación ligera para MM/AA en caducidad
+(function(){
+  try{
+    const cad = document.getElementById('cad');
+    if(!cad) return;
+    cad.addEventListener('input', function(){
+      let v = cad.value.replace(/[^0-9]/g,'');
+      if (v.length > 4) v = v.slice(0,4);
+      if (v.length >= 3) v = v.slice(0,2) + '/' + v.slice(2);
+      cad.value = v;
+    });
+    cad.addEventListener('blur', function(){
+      const m = cad.value.match(/^(\d{2})\/(\d{2})$/);
+      if(!m) return;
+      const mm = parseInt(m[1],10);
+      if (mm < 1 || mm > 12) { cad.setCustomValidity('Mes inválido (01-12)'); }
+      else { cad.setCustomValidity(''); }
+    });
+  }catch(e){}
+})();
+
+// Popover de calendario (selector Mes/Año) para el botón 📅
+(function(){
+  function pad2(n){ return (n < 10 ? '0' : '') + n; }
+  function yy2(year){ return String(year).slice(-2); }
+  function parseMMYY(v){
+    const m = (v||'').match(/^(\d{2})\/(\d{2})$/);
+    if(!m) return null; return { mm: parseInt(m[1],10), yy: parseInt(m[2],10) };
+  }
+
+  const btn = document.querySelector('.checkout-form .cal-btn');
+  const cadInput = document.getElementById('cad');
+  if(!btn || !cadInput) return;
+
+  let currentPopover = null;
+  function close(){ if(currentPopover){ currentPopover.remove(); currentPopover = null; document.removeEventListener('click', onDoc); document.removeEventListener('keydown', onKey); } }
+  function onDoc(ev){ if(currentPopover && !currentPopover.contains(ev.target) && ev.target !== btn){ close(); } }
+  function onKey(ev){ if(ev.key === 'Escape'){ close(); } }
+
+  btn.addEventListener('click', function(){
+    try{
+      if(currentPopover){ close(); return; }
+      const pop = document.createElement('div');
+      pop.className = 'exp-popover';
+      const now = new Date();
+      const parsed = parseMMYY(cadInput.value);
+      const selMonth = parsed ? parsed.mm : (now.getMonth()+1);
+      const selYearFull = now.getFullYear();
+      const selYY = parsed ? parsed.yy : parseInt(yy2(selYearFull),10);
+
+      // Meses 01..12
+      const monthSel = document.createElement('select');
+      monthSel.setAttribute('aria-label','Mes');
+      for(let m=1;m<=12;m++){
+        const opt = document.createElement('option');
+        opt.value = pad2(m); opt.textContent = pad2(m);
+        if(m === selMonth) opt.selected = true;
+        monthSel.appendChild(opt);
+      }
+
+      // Años: desde año actual hasta +15
+      const yearSel = document.createElement('select');
+      yearSel.setAttribute('aria-label','Año');
+      const start = now.getFullYear();
+      for(let y=start; y<= start+15; y++){
+        const opt = document.createElement('option');
+        opt.value = yy2(y); opt.textContent = y;
+        if(parseInt(opt.value,10) === selYY) opt.selected = true;
+        yearSel.appendChild(opt);
+      }
+
+      const applyBtn = document.createElement('button');
+      applyBtn.type = 'button'; applyBtn.className = 'btn'; applyBtn.textContent = 'Aplicar';
+      applyBtn.addEventListener('click', function(){
+        cadInput.value = monthSel.value + '/' + yearSel.value;
+        cadInput.setCustomValidity('');
+        cadInput.dispatchEvent(new Event('input', {bubbles:true}));
+        cadInput.focus();
+        close();
+      });
+
+      const cancelBtn = document.createElement('button');
+      cancelBtn.type = 'button'; cancelBtn.className = 'btn outline'; cancelBtn.textContent = 'Cancelar';
+      cancelBtn.addEventListener('click', close);
+
+      const row = document.createElement('div'); row.className = 'row'; row.style.gap = '.5rem';
+      row.appendChild(monthSel); row.appendChild(yearSel);
+      const btns = document.createElement('div'); btns.className = 'btns'; btns.appendChild(cancelBtn); btns.appendChild(applyBtn);
+      pop.appendChild(row); pop.appendChild(btns);
+
+      document.body.appendChild(pop);
+      // Posicionar junto al botón
+      const r = btn.getBoundingClientRect();
+      const pw = 240, ph = 110; // aprox
+      let left = r.left; let top = r.bottom + 8;
+      if(left + pw > window.innerWidth - 8) left = window.innerWidth - pw - 8;
+      if(top + ph > window.innerHeight - 8) top = r.top - ph - 8;
+      pop.style.position = 'fixed';
+      pop.style.left = left + 'px';
+      pop.style.top = top + 'px';
+      pop.style.width = pw + 'px';
+
+      currentPopover = pop;
+      setTimeout(()=>{ document.addEventListener('click', onDoc); document.addEventListener('keydown', onKey); }, 0);
+    }catch(e){}
+  });
 })();
 </script>
 </body>

@@ -48,8 +48,8 @@
       <header class="section-header">
         <h3>Packs de viaje recomendados</h3>
         <div class="arrows" aria-hidden="true">
-          <button class="arrow" type="button">‹</button>
-          <button class="arrow" type="button">›</button>
+          <button class="arrow" type="button" aria-label="Anterior">‹</button>
+          <button class="arrow" type="button" aria-label="Siguiente">›</button>
         </div>
       </header>
 
@@ -91,38 +91,38 @@
         <article class="exp-card">
           <img src="images/experiencias/portugal-costa.jpeg" alt="Acantilados en Costa Vicentina, Portugal">
           <h4>Costa Vicentina en bus</h4>
-          <a class="btn small" href="version-a.html">Ver más</a>
-          <a class="like" href="version-a.html" aria-label="Me gusta">♥</a>
+          <a class="btn small" href="#" onclick="return false">Ver más</a>
+          <a class="like" href="#" onclick="return false" aria-label="Me gusta">♥</a>
         </article>
         <article class="exp-card">
           <img src="images/experiencias/laos-rio.jpeg" alt="Cueva y río en Vang Vieng, Laos">
           <h4>Río Nam Song en Laos</h4>
-          <a class="btn small" href="version-a.html">Ver más</a>
-          <a class="like" href="version-a.html" aria-label="Me gusta">♥</a>
+          <a class="btn small" href="#" onclick="return false">Ver más</a>
+          <a class="like" href="#" onclick="return false" aria-label="Me gusta">♥</a>
         </article>
         <article class="exp-card">
           <img src="images/experiencias/islandia.jpeg" alt="Cascada en Islandia">
           <h4>Ring Road con presupuesto</h4>
-          <a class="btn small" href="version-a.html">Ver más</a>
-          <a class="like" href="version-a.html" aria-label="Me gusta">♥</a>
+          <a class="btn small" href="#" onclick="return false">Ver más</a>
+          <a class="like" href="#" onclick="return false" aria-label="Me gusta">♥</a>
         </article>
         <article class="exp-card">
           <img src="images/experiencias/jordan.jpeg" alt="Petra, Jordania">
           <h4>De Ammán a Petra</h4>
-          <a class="btn small" href="version-a.html">Ver más</a>
-          <a class="like" href="version-a.html" aria-label="Me gusta">♥</a>
+          <a class="btn small" href="#" onclick="return false">Ver más</a>
+          <a class="like" href="#" onclick="return false" aria-label="Me gusta">♥</a>
         </article>
         <article class="exp-card">
           <img src="images/experiencias/lofoten_travesia.jpeg" alt="Fiordos y auroras en Lofoten, Noruega">
           <h4>Travesía en kayak por Lofoten</h4>
-          <a class="btn small" href="version-a.html">Ver más</a>
-          <a class="like" href="version-a.html" aria-label="Me gusta">♥</a>
+          <a class="btn small" href="#" onclick="return false">Ver más</a>
+          <a class="like" href="#" onclick="return false" aria-label="Me gusta">♥</a>
         </article>
         <article class="exp-card">
           <img src="images/experiencias/sri_lanka_tea_route.jpeg" alt="Té, plantaciones y monzones en Sri Lanka">
           <h4>Ruta del té en Sri Lanka</h4>
-          <a class="btn small" href="version-a.html">Ver más</a>
-          <a class="like" href="version-a.html" aria-label="Me gusta">♥</a>
+          <a class="btn small" href="#" onclick="return false">Ver más</a>
+          <a class="like" href="#" onclick="return false" aria-label="Me gusta">♥</a>
         </article>
       </div>
     </section>
@@ -215,7 +215,6 @@
     </a>
   </div>
 </footer>
-</body>
 <script>
   // Cargar datos de usuario desde localStorage para mostrar en versión B
   (function(){
@@ -273,6 +272,7 @@
       const imgEl = a.closest('.card')?.querySelector('img');
       const titleEl = a.closest('.card')?.querySelector('h4');
       const priceEl = a.closest('.card')?.querySelector('.price-row strong');
+      const descEl = a.closest('.card')?.querySelector('p');
       if(!imgEl || !titleEl || !priceEl) return;
       a.addEventListener('click', function(ev){
         try{
@@ -283,12 +283,14 @@
           params.set('img', imgEl.getAttribute('src'));
           params.set('title', titleEl.textContent.trim());
           params.set('price', (priceEl.textContent||'').replace(/[^0-9]/g,''));
+          if(descEl) params.set('desc', descEl.textContent.trim());
           window.location.href = href + '?' + params.toString();
         }catch(e){/* noop */}
       });
     });
   })();
 </script>
+</body>
 </html>
 
 
