@@ -7,9 +7,10 @@
   <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
+<!-- Cabecera del sitio (sesión iniciada) -->
 <header class="site-header">
   <div class="brand">
-    <h1 style="font-size:5.2rem;line-height:1;margin:0">Mochileros Sin Fronteras</h1>
+    <h1>Mochileros Sin Fronteras</h1>
   </div>
 
   <nav aria-label="Principal" class="nav">
@@ -26,7 +27,7 @@
     <img src="images/logo.jpeg" alt="Logo" class="mini-logo-right" aria-hidden="true">
     <div class="lang-block">
       <label for="lang" class="sr-only">Idioma</label>
-      <select id="lang" style="font-size:2.2rem;padding:.45rem .7rem">
+      <select id="lang">
         <option>ES</option>
         <option>EN</option>
       </select>
@@ -34,6 +35,7 @@
   </div>
 </header>
 
+<!-- Layout principal: feed + sidebar con perfil, filtros, consejos y mini calendario -->
 <main class="layout">
   <section class="left">
     <!-- Clonado del index: hero + carrusel + experiencias -->
@@ -186,6 +188,7 @@
   </aside>
 </main>
 
+<!-- Pie de página con newsletter y redes -->
 <footer class="site-footer" style="font-size:2.2rem">
   <div class="footer-left">
     <small>© 2025 Mochileros Sin Fronteras</small>
@@ -215,6 +218,7 @@
     </a>
   </div>
 </footer>
+<!-- Script: cargar usuario desde localStorage y gestionar logout -->
 <script>
   // Cargar datos de usuario desde localStorage para mostrar en versión B
   (function(){
@@ -265,7 +269,7 @@
       }
     }catch(e){/* noop */}
   })();
-  // Pasar imagen/título/precio del pack a versión C
+  // Pasar imagen/título/precio del pack a versión C (detalle de compra)
   (function(){
     document.querySelectorAll('a.btn').forEach(function(a){
       if(!a.closest('.card')) return; // solo en packs

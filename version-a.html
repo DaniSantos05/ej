@@ -7,9 +7,10 @@
   <link rel="stylesheet" href="style/style.css">
 </head>
 <body class="single">
+<!-- Cabecera compacta (página single) -->
 <header class="site-header compact">
   <div class="brand">
-    <h1 style="font-size:5.2rem;line-height:1;margin:0">Mochileros Sin Fronteras</h1>
+    <h1>Mochileros Sin Fronteras</h1>
   </div>
 
   <nav aria-label="Principal" class="nav">
@@ -25,7 +26,7 @@
     <img src="images/logo.jpeg" alt="Logo" class="mini-logo-right" aria-hidden="true">
     <div class="lang-block">
       <label for="lang" class="sr-only">Idioma</label>
-      <select id="lang" style="font-size:2.2rem;padding:.45rem .7rem">
+      <select id="lang">
         <option>ES</option>
         <option>EN</option>
       </select>
@@ -36,9 +37,11 @@
   </header>
 
   <!-- Enlace fuera del header, centrado (posición señalada por el usuario) -->
+  <!-- Enlace de retorno a home bajo la cabecera -->
   <div class="back-home">
     <a href="index.html">← Volver a Home</a>
   </div>
+<!-- Contenido principal: formulario de registro -->
 <main class="single-container">
   <h2>Registro de nuevos usuarios</h2>
   <form class="form-card" action="version-b.html" method="get">
@@ -91,6 +94,7 @@
     </div>
   </form>
 </main>
+<!-- Pie de página con newsletter y redes -->
 <footer class="site-footer" style="font-size:2.2rem">
   <div class="footer-left">
     <small>© 2025 Mochileros Sin Fronteras</small>
@@ -120,6 +124,7 @@
     </a>
   </div>
 </footer>
+<!-- Script: guardar nombre/avatar en localStorage y redirigir a versión B -->
 <script>
   // Guarda nombre completo e imagen en localStorage para usar en versión B
   (function(){

@@ -7,9 +7,10 @@
   <link rel="stylesheet" href="style/style.css">
 </head>
 <body class="single">
+<!-- Cabecera compacta (página de compra) -->
 <header class="site-header compact">
   <div class="brand">
-    <h1 style="font-size:5.2rem;line-height:1;margin:0">Mochileros Sin Fronteras</h1>
+    <h1>Mochileros Sin Fronteras</h1>
   </div>
 
   <nav aria-label="Principal" class="nav">
@@ -26,7 +27,7 @@
     <img src="images/logo.jpeg" alt="Logo" class="mini-logo-right" aria-hidden="true">
     <div class="lang-block">
       <label for="lang" class="sr-only">Idioma</label>
-      <select id="lang" style="font-size:2.2rem;padding:.45rem .7rem">
+      <select id="lang">
         <option>ES</option>
         <option>EN</option>
       </select>
@@ -37,15 +38,18 @@
   </header>
 
   <!-- Enlace fuera del header, centrado (posición señalada por el usuario) -->
+  <!-- Enlace de retorno a home bajo la cabecera -->
   <div class="back-home">
     <a href="index.html">← Volver a Home</a>
   </div>
 
 <h1>Compra de pack</h1>
 
+<!-- Dos columnas: izquierda (imagen+overlays+descripción) y derecha (checkout) -->
 <main class="two-cols">
   <div class="left-col">
-    <section class="product">
+  <!-- Producto: imagen + overlays (título/precio y resumen) -->
+  <section class="product">
       <div class="media">
         <img src="images/pack_andes.jpeg" alt="Pack Andes" class="product-image">
         <!-- Barra superior con título y precio -->
@@ -59,12 +63,14 @@
     </section>
 
     <!-- Recuadro independiente para la descripción larga -->
-    <section class="product-desc" aria-labelledby="desc-title">
+  <!-- Descripción larga independiente del pack -->
+  <section class="product-desc" aria-labelledby="desc-title">
       <h3 class="section-label" id="desc-title">Descripción del pack</h3>
   <p id="pack-desc">Este pack está pensado para viajeros que buscan combinar naturaleza, cultura y un ritmo de viaje relajado. A lo largo del recorrido visitarás los puntos más emblemáticos de la región, con tiempo para disfrutar de los paisajes y realizar pequeñas rutas a pie. El alojamiento es en hostales y casas locales cuidadosamente seleccionadas, y el transporte se realiza en medios públicos o privados según el tramo para optimizar tiempos. Incluye recomendaciones de comida típica, paradas panorámicas y sugerencias de actividades opcionales para que puedas personalizar cada día sin complicaciones.</p>
     </section>
   </div>
 
+  <!-- Checkout: formulario de compra -->
   <section class="checkout">
     <form class="form-card checkout-form" action="#" method="post">
       <h3 class="form-title">Formulario de compra</h3>
@@ -147,6 +153,7 @@
     </a>
   </div>
 </footer>
+<!-- Script: rellenar datos del pack desde la URL (img, título, precio, descripciones) -->
 <script>
 (function(){
   try {

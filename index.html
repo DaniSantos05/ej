@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="page-home">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Mochileros Sin Fronteras – Home</title>
   <link rel="stylesheet" href="style/style.css">
 </head>
-<body style="font-size:2.2rem">
+<body>
+<!-- Cabecera del sitio: marca, navegación principal y selector de idioma -->
 <header class="site-header">
   <div class="brand">
-    <h1 style="font-size:5.2rem;line-height:1;margin:0">Mochileros Sin Fronteras</h1>
+    <h1>Mochileros Sin Fronteras</h1>
   </div>
 
   <nav aria-label="Principal" class="nav">
@@ -26,7 +27,7 @@
     <img src="images/logo.jpeg" alt="Logo" class="mini-logo-right" aria-hidden="true">
     <div class="lang-block">
       <label for="lang" class="sr-only">Idioma</label>
-      <select id="lang" style="font-size:2rem;padding:.45rem .7rem">
+      <select id="lang">
         <option>ES</option>
         <option>EN</option>
       </select>
@@ -34,18 +35,21 @@
   </div>
 </header>
 
+<!-- Estructura principal en dos columnas: contenido (izquierda) + sidebar (derecha) -->
 <main class="layout">
   <!-- Columna izquierda: 2/3 -->
   <section class="left">
     <!-- Bloque superior: banner + carrusel (no funcional) -->
-    <section class="hero">
+  <!-- Hero con imagen de fondo fija desde CSS -->
+  <section class="hero">
       <div class="hero-text">
         <h2>Viaja ligero, vive grande</h2>
         <p>Rutas verificadas por mochileros reales y packs listos para salir.</p>
       </div>
     </section>
 
-    <section class="carousel" aria-label="Packs de viaje recomendados">
+  <!-- Carrusel estático (3 packs destacados) -->
+  <section class="carousel" aria-label="Packs de viaje recomendados">
       <header class="section-header">
         <h3>Packs de viaje recomendados</h3>
         <div class="arrows" aria-hidden="true">
@@ -98,7 +102,8 @@
     </section>
 
     <!-- Bloque inferior: cuadrícula de experiencias -->
-    <section class="experiencias">
+  <!-- Rejilla de experiencias de usuarios -->
+  <section class="experiencias">
       <h3>Experiencias de la comunidad</h3>
       <div class="grid">
         <article class="exp-card">
@@ -142,6 +147,7 @@
   </section>
 
   <!-- Barra lateral derecha: 1/3 -->
+  <!-- Barra lateral con login y bloques editoriales -->
   <aside class="right">
     <section class="login">
       <h3>Acceso</h3>
@@ -196,6 +202,7 @@
   </aside>
 </main>
 
+<!-- Pie de página con newsletter y redes -->
 <footer class="site-footer" style="font-size:2.2rem">
   <div class="footer-left">
     <small>© 2025 Mochileros Sin Fronteras</small>
@@ -226,26 +233,25 @@
     </a>
   </div>
 </footer>
+<!-- Script: construir navegación a la compra con parámetros del pack (versión simplificada) -->
 <script>
-  // Construye la URL a version-c.html con los datos del pack
   (function(){
-    document.querySelectorAll('a.buy[data-img]').forEach(function(a){
-      a.addEventListener('click', function(ev){
-        try{
-          const img = a.getAttribute('data-img');
-          const title = a.getAttribute('data-title') || '';
-          const price = a.getAttribute('data-price') || '';
-          const desc = a.getAttribute('data-desc') || '';
-          if(!img) return; // que navegue al href normal
-          ev.preventDefault();
-          const params = new URLSearchParams();
-          params.set('img', img);
-          if(title) params.set('title', title);
-          if(price) params.set('price', price);
-          if(desc) params.set('desc', desc);
-          window.location.href = a.getAttribute('href') + '?' + params.toString();
-        }catch(e){/* fallback al href */}
-      });
+    // Delegación: un único listener para todos los enlaces .buy[data-img]
+    document.addEventListener('click', function(ev){
+      const a = ev.target.closest('a.buy[data-img]');
+      if(!a) return;
+      try{
+        const { img, title = '', price = '', desc = '' } = a.dataset;
+        if(!img) return; // sin imagen, dejamos la navegación normal
+        ev.preventDefault();
+        const params = new URLSearchParams({ img });
+        if(title) params.set('title', title);
+        if(price) params.set('price', price);
+        if(desc) params.set('desc', desc);
+        const url = new URL(a.getAttribute('href'), window.location.href);
+        url.search = params.toString();
+        window.location.href = url.toString();
+      }catch(e){ /* fallback: no rompemos la navegación */ }
     });
   })();
   </script>
