@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Comprar pack – Mochileros</title>
+  <title>Comprar pack – Mundo a la espalda</title>
   <link rel="stylesheet" href="style/style.css">
 </head>
 <body class="single">
 <!-- Cabecera compacta (página de compra) -->
 <header class="site-header compact">
   <div class="brand">
-    <h1>Mochileros Sin Fronteras</h1>
+  <h1>Mundo a la espalda</h1>
   </div>
 
   <nav aria-label="Principal" class="nav">
@@ -126,7 +126,7 @@
 
 <footer class="site-footer" style="font-size:2.2rem">
   <div class="footer-left">
-    <small>© 2025 Mochileros Sin Fronteras</small>
+  <small>© 2025 Mundo a la espalda</small>
   </div>
 
   <nav aria-label="Enlaces legales" class="footer-center">
@@ -153,159 +153,6 @@
     </a>
   </div>
 </footer>
-<!-- Script: rellenar datos del pack desde la URL (img, título, precio, descripciones) -->
-<script>
-(function(){
-  try {
-    const params = new URLSearchParams(window.location.search);
-    const img = params.get('img');
-    const title = params.get('title');
-    const price = params.get('price');
-    const desc = params.get('desc');
-  const product = document.querySelector('main.two-cols .product');
-  const imgEl = product?.querySelector('img');
-  const titleEl = document.getElementById('pack-title');
-  const priceEl = document.getElementById('pack-price');
-    const descEl = document.getElementById('pack-desc');
-  const briefEl = document.getElementById('pack-brief');
-
-    if (img && imgEl) imgEl.src = img;
-    if (title && titleEl) {
-      titleEl.textContent = title;
-      if (imgEl) imgEl.alt = 'Pack ' + title;
-    }
-    if (price && priceEl) {
-      const clean = String(price).replace(/[^0-9]/g,'');
-      priceEl.textContent = (clean ? '€' + clean : price);
-    }
-
-    // Descripciones largas por pack como fallback si llega una corta
-    const longByTitle = {
-      'Andes esenciales (10 días)': 'Explora el corazón de los Andes con base en Cusco y el Valle Sagrado. Incluye caminatas por rutas clásicas, visitas a comunidades locales y travesía por el Lago Titicaca. Alojamiento en hostales sencillos, transporte interno y soporte de guías locales.',
-      'Sahara en ruta (7 días)': 'Cruza el Alto Atlas hacia el desierto de Erg Chebbi. Dormirás en jaimas bajo un cielo estrellado, visitarás kasbahs históricas como Ait Ben Hadu y recorrerás oasis y gargantas. Transporte con conductor local y vivac incluido.',
-      'Himalaya fácil (8 días)': 'Ruta de iniciación por Nepal con tiempo en Katmandú y trekking suave hasta Poon Hill. Alojamientos en casas de té, ritmos tranquilos y paisajes de ochomiles al amanecer. Ideal para una primera experiencia en altura.'
-    };
-
-    if (briefEl && desc) briefEl.textContent = desc;
-    if (descEl) {
-      // Mantener el texto por defecto (lorem) salvo que tengamos una descripción larga
-      if (title && longByTitle[title]) {
-        descEl.textContent = longByTitle[title];
-      } else if (desc) {
-        descEl.textContent = desc;
-      }
-    }
-  } catch (e) {}
-})();
-
-// Máscara y validación ligera para MM/AA en caducidad
-(function(){
-  try{
-    const cad = document.getElementById('cad');
-    if(!cad) return;
-    cad.addEventListener('input', function(){
-      let v = cad.value.replace(/[^0-9]/g,'');
-      if (v.length > 4) v = v.slice(0,4);
-      if (v.length >= 3) v = v.slice(0,2) + '/' + v.slice(2);
-      cad.value = v;
-    });
-    cad.addEventListener('blur', function(){
-      const m = cad.value.match(/^(\d{2})\/(\d{2})$/);
-      if(!m) return;
-      const mm = parseInt(m[1],10);
-      if (mm < 1 || mm > 12) { cad.setCustomValidity('Mes inválido (01-12)'); }
-      else { cad.setCustomValidity(''); }
-    });
-  }catch(e){}
-})();
-
-// Popover de calendario (selector Mes/Año) para el botón 📅
-(function(){
-  function pad2(n){ return (n < 10 ? '0' : '') + n; }
-  function yy2(year){ return String(year).slice(-2); }
-  function parseMMYY(v){
-    const m = (v||'').match(/^(\d{2})\/(\d{2})$/);
-    if(!m) return null; return { mm: parseInt(m[1],10), yy: parseInt(m[2],10) };
-  }
-
-  const btn = document.querySelector('.checkout-form .cal-btn');
-  const cadInput = document.getElementById('cad');
-  if(!btn || !cadInput) return;
-
-  let currentPopover = null;
-  function close(){ if(currentPopover){ currentPopover.remove(); currentPopover = null; document.removeEventListener('click', onDoc); document.removeEventListener('keydown', onKey); } }
-  function onDoc(ev){ if(currentPopover && !currentPopover.contains(ev.target) && ev.target !== btn){ close(); } }
-  function onKey(ev){ if(ev.key === 'Escape'){ close(); } }
-
-  btn.addEventListener('click', function(){
-    try{
-      if(currentPopover){ close(); return; }
-      const pop = document.createElement('div');
-      pop.className = 'exp-popover';
-      const now = new Date();
-      const parsed = parseMMYY(cadInput.value);
-      const selMonth = parsed ? parsed.mm : (now.getMonth()+1);
-      const selYearFull = now.getFullYear();
-      const selYY = parsed ? parsed.yy : parseInt(yy2(selYearFull),10);
-
-      // Meses 01..12
-      const monthSel = document.createElement('select');
-      monthSel.setAttribute('aria-label','Mes');
-      for(let m=1;m<=12;m++){
-        const opt = document.createElement('option');
-        opt.value = pad2(m); opt.textContent = pad2(m);
-        if(m === selMonth) opt.selected = true;
-        monthSel.appendChild(opt);
-      }
-
-      // Años: desde año actual hasta +15
-      const yearSel = document.createElement('select');
-      yearSel.setAttribute('aria-label','Año');
-      const start = now.getFullYear();
-      for(let y=start; y<= start+15; y++){
-        const opt = document.createElement('option');
-        opt.value = yy2(y); opt.textContent = y;
-        if(parseInt(opt.value,10) === selYY) opt.selected = true;
-        yearSel.appendChild(opt);
-      }
-
-      const applyBtn = document.createElement('button');
-      applyBtn.type = 'button'; applyBtn.className = 'btn'; applyBtn.textContent = 'Aplicar';
-      applyBtn.addEventListener('click', function(){
-        cadInput.value = monthSel.value + '/' + yearSel.value;
-        cadInput.setCustomValidity('');
-        cadInput.dispatchEvent(new Event('input', {bubbles:true}));
-        cadInput.focus();
-        close();
-      });
-
-      const cancelBtn = document.createElement('button');
-      cancelBtn.type = 'button'; cancelBtn.className = 'btn outline'; cancelBtn.textContent = 'Cancelar';
-      cancelBtn.addEventListener('click', close);
-
-      const row = document.createElement('div'); row.className = 'row'; row.style.gap = '.5rem';
-      row.appendChild(monthSel); row.appendChild(yearSel);
-      const btns = document.createElement('div'); btns.className = 'btns'; btns.appendChild(cancelBtn); btns.appendChild(applyBtn);
-      pop.appendChild(row); pop.appendChild(btns);
-
-      document.body.appendChild(pop);
-      // Posicionar junto al botón
-      const r = btn.getBoundingClientRect();
-      const pw = 240, ph = 110; // aprox
-      let left = r.left; let top = r.bottom + 8;
-      if(left + pw > window.innerWidth - 8) left = window.innerWidth - pw - 8;
-      if(top + ph > window.innerHeight - 8) top = r.top - ph - 8;
-      pop.style.position = 'fixed';
-      pop.style.left = left + 'px';
-      pop.style.top = top + 'px';
-      pop.style.width = pw + 'px';
-
-      currentPopover = pop;
-      setTimeout(()=>{ document.addEventListener('click', onDoc); document.addEventListener('keydown', onKey); }, 0);
-    }catch(e){}
-  });
-})();
-</script>
 </body>
 </html>
 

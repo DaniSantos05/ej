@@ -10,7 +10,7 @@
 <!-- Cabecera del sitio (sesión iniciada) -->
 <header class="site-header">
   <div class="brand">
-    <h1>Mochileros Sin Fronteras</h1>
+  <h1>Mundo a la espalda</h1>
   </div>
 
   <nav aria-label="Principal" class="nav">
@@ -191,7 +191,7 @@
 <!-- Pie de página con newsletter y redes -->
 <footer class="site-footer" style="font-size:2.2rem">
   <div class="footer-left">
-    <small>© 2025 Mochileros Sin Fronteras</small>
+  <small>© 2025 Mundo a la espalda</small>
   </div>
 
   <nav aria-label="Enlaces legales" class="footer-center">
@@ -218,82 +218,6 @@
     </a>
   </div>
 </footer>
-<!-- Script: cargar usuario desde localStorage y gestionar logout -->
-<script>
-  // Cargar datos de usuario desde localStorage para mostrar en versión B
-  (function(){
-    try{
-      const nameEl = document.getElementById('profile-name');
-      const avatarEl = document.getElementById('profile-avatar');
-      const logoutBtn = document.getElementById('logout-btn');
-
-      const storedName = localStorage.getItem('msf_user_name');
-      const storedAvatar = localStorage.getItem('msf_user_avatar');
-
-      if (storedName && nameEl) nameEl.textContent = storedName;
-      if (storedAvatar && avatarEl) avatarEl.src = storedAvatar;
-
-      if (logoutBtn){
-        logoutBtn.addEventListener('click', function(){
-          localStorage.removeItem('msf_user_name');
-          localStorage.removeItem('msf_user_avatar');
-          window.location.href = 'index.html';
-        });
-      }
-    }catch(e){/* noop */}
-  })();
-  // Resaltar dinámicamente el día actual en el mini calendario si coincide el mes/año
-  (function(){
-    try{
-      const cal = document.querySelector('.mini-cal .calendar');
-      if(!cal) return;
-      const header = cal.querySelector('.cal-header');
-      const grid = cal.querySelector('.cal-grid');
-      if(!header || !grid) return;
-      const txt = (header.textContent || '').trim().toUpperCase();
-      const parts = txt.split(/\s+/);
-      if(parts.length < 2) return;
-      const monthName = parts[0];
-      const year = parseInt(parts[1],10);
-      const months = { 'ENERO':0,'FEBRERO':1,'MARZO':2,'ABRIL':3,'MAYO':4,'JUNIO':5,'JULIO':6,'AGOSTO':7,'SEPTIEMBRE':8,'OCTUBRE':9,'NOVIEMBRE':10,'DICIEMBRE':11 };
-      const today = new Date();
-      if (months[monthName] === today.getMonth() && year === today.getFullYear()){
-        const tday = today.getDate();
-        grid.querySelectorAll('.cell').forEach(cell => {
-          cell.classList.remove('today');
-          const n = parseInt(cell.textContent.trim(),10);
-          if(n === tday) cell.classList.add('today');
-        });
-      } else {
-        grid.querySelectorAll('.cell.today').forEach(c => c.classList.remove('today'));
-      }
-    }catch(e){/* noop */}
-  })();
-  // Pasar imagen/título/precio del pack a versión C (detalle de compra)
-  (function(){
-    document.querySelectorAll('a.btn').forEach(function(a){
-      if(!a.closest('.card')) return; // solo en packs
-      const imgEl = a.closest('.card')?.querySelector('img');
-      const titleEl = a.closest('.card')?.querySelector('h4');
-      const priceEl = a.closest('.card')?.querySelector('.price-row strong');
-      const descEl = a.closest('.card')?.querySelector('p');
-      if(!imgEl || !titleEl || !priceEl) return;
-      a.addEventListener('click', function(ev){
-        try{
-          const href = a.getAttribute('href');
-          if(!href || !/version-c\.html/.test(href)) return;
-          ev.preventDefault();
-          const params = new URLSearchParams();
-          params.set('img', imgEl.getAttribute('src'));
-          params.set('title', titleEl.textContent.trim());
-          params.set('price', (priceEl.textContent||'').replace(/[^0-9]/g,''));
-          if(descEl) params.set('desc', descEl.textContent.trim());
-          window.location.href = href + '?' + params.toString();
-        }catch(e){/* noop */}
-      });
-    });
-  })();
-</script>
 </body>
 </html>
 

@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Registro – Mochileros Sin Fronteras</title>
+  <title>Registro – Mundo a la espalda</title>
   <link rel="stylesheet" href="style/style.css">
 </head>
 <body class="single">
 <!-- Cabecera compacta (página single) -->
 <header class="site-header compact">
   <div class="brand">
-    <h1>Mochileros Sin Fronteras</h1>
+  <h1>Mundo a la espalda</h1>
   </div>
 
   <nav aria-label="Principal" class="nav">
@@ -97,7 +97,7 @@
 <!-- Pie de página con newsletter y redes -->
 <footer class="site-footer" style="font-size:2.2rem">
   <div class="footer-left">
-    <small>© 2025 Mochileros Sin Fronteras</small>
+  <small>© 2025 Mundo a la espalda</small>
   </div>
 
   <nav aria-label="Enlaces legales" class="footer-center">
@@ -124,41 +124,6 @@
     </a>
   </div>
 </footer>
-<!-- Script: guardar nombre/avatar en localStorage y redirigir a versión B -->
-<script>
-  // Guarda nombre completo e imagen en localStorage para usar en versión B
-  (function(){
-    const form = document.querySelector('form.form-card');
-    if(!form) return;
-    form.addEventListener('submit', function(ev){
-      ev.preventDefault();
-      const nombre = (document.getElementById('nombre')?.value || '').trim();
-      const apellidos = (document.getElementById('apellidos')?.value || '').trim();
-      const login = (document.getElementById('login')?.value || '').trim();
-      const fotoInput = document.getElementById('foto');
-
-      const displayName = (nombre + ' ' + apellidos).trim() || login || 'Usuario registrado';
-      try{ localStorage.setItem('msf_user_name', displayName); }catch(e){}
-
-      const goNext = () => { window.location.href = form.action || 'version-b.html'; };
-
-      const defaultAvatar = 'images/logo.jpeg';
-      if (fotoInput && fotoInput.files && fotoInput.files[0]){
-        const file = fotoInput.files[0];
-        const reader = new FileReader();
-        reader.onload = function(){
-          try{ localStorage.setItem('msf_user_avatar', reader.result); }catch(e){}
-          goNext();
-        };
-        reader.onerror = goNext;
-        reader.readAsDataURL(file);
-      } else {
-        try{ localStorage.setItem('msf_user_avatar', defaultAvatar); }catch(e){}
-        goNext();
-      }
-    });
-  })();
-  </script>
 </body>
 </html>
 
