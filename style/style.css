@@ -126,12 +126,12 @@
     .right .tips .row textarea{flex:1}
     .right .tips .btn.full{font-size:1.1rem;padding:.7rem 1rem;border-radius:.6rem}
     /* Login: inputs y botones más grandes */
-    .right .login .btn.full{font-size:1.9rem;padding:1.4rem 1.6rem;border-radius:.7rem}
-    .right .login .btn.outline.full{font-size:1.6rem;padding:1.1rem 1.3rem;border-radius:.7rem;display:block;width:100%;text-align:center}
+    .right .login .btn.full{font-size:1.2rem;padding:.8rem 1rem;border-radius:.7rem}
+    .right .login .btn.outline.full{font-size:1.1rem;padding:.6 .9rem 1.3rem;border-radius:.7rem;display:block;width:100%;text-align:center}
     .right .login .input-container input,
     .right .login input[type="text"],
-    .right .login input[type="password"]{font-size:1.6rem;padding:.9rem 1rem;height:auto;min-height:48px;line-height:1.2;color:var(--text);border:1px solid var(--border);background:var(--card);border-radius:.45rem}
-    .right .login .chk{font-size:1.6rem;gap:.8rem;align-items:center;line-height:1}
+    .right .login input[type="password"]{font-size:1.1rem;padding:.6rem .8rem;height:auto;min-height:40px;line-height:1.2;color:var(--text);border:1px solid var(--border);background:var(--card);border-radius:.45rem}
+    .right .login .chk{font-size:1.1rem;gap:.8rem;align-items:center;line-height:1}
     .right .login .chk input[type="checkbox"]{transform:scale(1.05);margin:0 .35rem 0 0;vertical-align:middle}
     .right .login .chk a{font-size:1.6rem}
 
