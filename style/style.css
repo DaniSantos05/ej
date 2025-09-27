@@ -36,7 +36,11 @@
       color:var(--text);
       font-size:1.22rem; /* base del sitio */
     }
-
+    html{
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+    
     /* 2) Tipografía y utilidades */
     h1,h2,h3{margin:.2rem 0 .6rem}
     .brand h1{font-size:3.2rem;line-height:1;white-space:nowrap}
@@ -254,3 +258,5 @@
       .site-footer{font-size:1.05rem}
       .hero-text h2{font-size:2rem}
     }
+    /* Evita que el navegador “infle” el texto en móvil (parece zoom) */
+
