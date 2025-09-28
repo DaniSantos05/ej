@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="style/style.css">
 </head>
 <body class="single">
-<!-- Cabecera compacta (página de compra) -->
+<!-- Cabecera (página de compra) -->
 <header class="site-header compact">
   <div class="brand">
   <h1>Mundo a la espalda</h1>
@@ -37,7 +37,7 @@
   <!-- Enlace centrado debajo del nav y encima del contenido -->
   </header>
 
-  <!-- Enlace fuera del header, centrado (posición señalada por el usuario) -->
+  <!-- Enlace fuera del header, centrado -->
   <!-- Enlace de retorno a home bajo la cabecera -->
   <div class="back-home">
     <a href="index.html">← Volver a Home</a>
@@ -50,6 +50,7 @@
   <div class="left-col">
   <!-- Producto: imagen + overlays (título/precio y resumen) -->
   <section class="product">
+    <h2 class="sr-only">Detalle del pack</h2>
       <div class="media">
         <img src="images/pack_andes.jpeg" alt="Pack Andes" class="product-image">
         <!-- Barra superior con título y precio -->
@@ -62,7 +63,7 @@
       </div>
     </section>
 
-    <!-- Recuadro independiente para la descripción larga -->
+    <!-- Recuadro para la descripción larga -->
   <!-- Descripción larga independiente del pack -->
   <section class="product-desc" aria-labelledby="desc-title">
       <h3 class="section-label" id="desc-title">Descripción del pack</h3>
@@ -88,11 +89,13 @@
       <div class="field">
         <label for="tt">Tipo de tarjeta</label>
         <select id="tt" name="tt" required>
-          <option>Visa</option>
-          <option>Mastercard</option>
-          <option>American Express</option>
+          <option value="" selected disabled hidden>Selecciona tipo de tarjeta</option>
+          <option value="visa">Visa</option>
+          <option value="mastercard">Mastercard</option>
+          <option value="amex">American Express</option>
         </select>
       </div>
+
 
       <div class="field">
         <label class="sr-only" for="num">Número de tarjeta</label>

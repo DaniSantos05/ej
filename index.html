@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
-<!-- Cabecera del sitio: marca, navegación principal y selector de idioma -->
+<!-- Cabecera -->
 <header class="site-header">
   <div class="brand">
   <h1>Mundo a la espalda</h1>
@@ -35,12 +35,13 @@
   </div>
 </header>
 
-<!-- Estructura principal en dos columnas: contenido (izquierda) + sidebar (derecha) -->
+<!-- Estructura principal: contenido (izquierda) + sidebar (derecha) -->
 <main class="layout">
-  <!-- Columna izquierda: 2/3 -->
+  <!--Columna izquierda: 2/3-->
   <section class="left">
-    <!-- Bloque superior: banner + carrusel (no funcional) -->
-  <!-- Hero con imagen de fondo fija desde CSS -->
+    <h2 class="sr-only">Contenido principal</h2>
+
+  <!-- Hero con imagen de fondo fija -->
   <section class="hero">
       <div class="hero-text">
         <h2>Viaja ligero, vive grande</h2>
@@ -48,7 +49,7 @@
       </div>
     </section>
 
-  <!-- Carrusel estático (3 packs destacados) -->
+  <!-- Carrusel estático -->
   <section class="carousel" aria-label="Packs de viaje recomendados">
       <header class="section-header">
         <h3>Packs de viaje recomendados</h3>
@@ -102,7 +103,7 @@
     </section>
 
     <!-- Bloque inferior: cuadrícula de experiencias -->
-  <!-- Rejilla de experiencias de usuarios -->
+  <!-- Experiencias de usuarios -->
   <section class="experiencias">
       <h3>Experiencias de la comunidad</h3>
       <div class="grid">
@@ -147,7 +148,7 @@
   </section>
 
   <!-- Barra lateral derecha: 1/3 -->
-  <!-- Barra lateral con login y bloques editoriales -->
+  <!-- Barra lateral con login y extras -->
   <aside class="right">
     <section class="login">
       <h3>Acceso</h3>
@@ -202,7 +203,7 @@
   </aside>
 </main>
 
-<!-- Pie de página con newsletter y redes -->
+<!-- Pie de página con newsletter y redes sociales -->
 <footer class="site-footer" style="font-size:2.2rem">
   <div class="footer-left">
   <small>© 2025 Mundo a la espalda</small>
@@ -233,7 +234,7 @@
     </a>
   </div>
 </footer>
-<!-- Script: construir navegación a la compra con parámetros del pack (versión simplificada) -->
+<!-- Script: construir redirección a la compra específica -->
 <script>
   (function(){
     // Delegación: un único listener para todos los enlaces .buy[data-img]
@@ -251,7 +252,7 @@
         const url = new URL(a.getAttribute('href'), window.location.href);
         url.search = params.toString();
         window.location.href = url.toString();
-      }catch(e){ /* fallback: no rompemos la navegación */ }
+      }catch(e){ /* fallback: no se rompe la navegación */ }
     });
   })();
   </script>
