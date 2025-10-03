@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.3">
   <title>Mundo a la espalda – Home</title>
   <link rel="stylesheet" href="style/style.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="script/storage.js" defer></script>
+  <script src="script/validators.js" defer></script>
+  <script src="script/auth.js" defer></script>
+  <script src="script/carousel.js" defer></script>
+  <script src="script/tips.js" defer></script>
+  <script src="script/checkout.js" defer></script>
+  <script src="script/main.js" defer></script>
 </head>
 <body>
 <!-- Cabecera -->
@@ -204,7 +212,7 @@
 </main>
 
 <!-- Pie de página con newsletter y redes sociales -->
-<footer class="site-footer" style="font-size:2.2rem">
+<footer class="site-footer">
   <div class="footer-left">
   <small>© 2025 Mundo a la espalda</small>
   </div>
@@ -234,28 +242,6 @@
     </a>
   </div>
 </footer>
-<!-- Script: construir redirección a la compra específica -->
-<script>
-  (function(){
-    // Delegación: un único listener para todos los enlaces .buy[data-img]
-    document.addEventListener('click', function(ev){
-      const a = ev.target.closest('a.buy[data-img]');
-      if(!a) return;
-      try{
-        const { img, title = '', price = '', desc = '' } = a.dataset;
-        if(!img) return; // sin imagen, dejamos la navegación normal
-        ev.preventDefault();
-        const params = new URLSearchParams({ img });
-        if(title) params.set('title', title);
-        if(price) params.set('price', price);
-        if(desc) params.set('desc', desc);
-        const url = new URL(a.getAttribute('href'), window.location.href);
-        url.search = params.toString();
-        window.location.href = url.toString();
-      }catch(e){ /* fallback: no se rompe la navegación */ }
-    });
-  })();
-  </script>
 </body>
 </html>
 

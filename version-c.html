@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.3">  
   <title>Comprar pack – Mundo a la espalda</title>
   <link rel="stylesheet" href="style/style.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="script/storage.js" defer></script>
+  <script src="script/validators.js" defer></script>
+  <script src="script/checkout.js" defer></script>
+  <script src="script/main.js" defer></script>
 </head>
 <body class="single">
 <!-- Cabecera (página de compra) -->
@@ -63,11 +68,17 @@
       </div>
     </section>
 
-    <!-- Recuadro para la descripción larga -->
+    
   <!-- Descripción larga independiente del pack -->
   <section class="product-desc" aria-labelledby="desc-title">
       <h3 class="section-label" id="desc-title">Descripción del pack</h3>
-  <p id="pack-desc">Este pack está pensado para viajeros que buscan combinar naturaleza, cultura y un ritmo de viaje relajado. A lo largo del recorrido visitarás los puntos más emblemáticos de la región, con tiempo para disfrutar de los paisajes y realizar pequeñas rutas a pie. El alojamiento es en hostales y casas locales cuidadosamente seleccionadas, y el transporte se realiza en medios públicos o privados según el tramo para optimizar tiempos. Incluye recomendaciones de comida típica, paradas panorámicas y sugerencias de actividades opcionales para que puedas personalizar cada día sin complicaciones.</p>
+  <p id="pack-desc">Este pack está pensado para viajeros que buscan combinar naturaleza, 
+    cultura y un ritmo de viaje relajado. A lo largo del recorrido visitarás los puntos más 
+    emblemáticos de la región, con tiempo para disfrutar de los paisajes y realizar pequeñas 
+    rutas a pie. El alojamiento es en hostales y casas locales cuidadosamente seleccionadas, 
+    y el transporte se realiza en medios públicos o privados según el tramo para optimizar tiempos. 
+    Incluye recomendaciones de comida típica, paradas panorámicas y sugerencias de actividades opcionales 
+    para que puedas personalizar cada día sin complicaciones.</p>
     </section>
   </div>
 
@@ -78,7 +89,7 @@
 
       <div class="field">
         <label class="sr-only" for="n">Nombre completo</label>
-        <input id="n" name="n" placeholder="Nombre completo" required>
+        <input id="n" name="n" minlength="3" placeholder="Nombre completo (mín. 3)" required>
       </div>
 
       <div class="field">
@@ -110,12 +121,12 @@
       <div class="row two">
         <label class="row-label" for="cad">Fecha de caducidad</label>
         <div class="field">
-          <input id="cad" class="exp-input" name="cad" placeholder="MM/AA" inputmode="numeric" maxlength="5" pattern="^(0[1-9]|1[0-2])\/\d{2}$" required>
+          <input id="cad" class="exp-input" name="cad" type="date" required>
         </div>
         <button class="cal-btn" type="button" aria-label="Abrir calendario">📅</button>
         <div class="field">
           <label class="sr-only" for="cvv">Código CVV</label>
-          <input id="cvv" class="cvv-input" name="cvv" inputmode="numeric" pattern="[0-9]{3,4}" placeholder="Código CVV" required>
+          <input id="cvv" class="cvv-input" name="cvv" inputmode="numeric" maxlength="3" pattern="[0-9]{3}" placeholder="Código CVV" required>
         </div>
       </div>
 
@@ -127,7 +138,7 @@
   </section>
 </main>
 
-<footer class="site-footer" style="font-size:2.2rem">
+<footer class="site-footer">
   <div class="footer-left">
   <small>© 2025 Mundo a la espalda</small>
   </div>

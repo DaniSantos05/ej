@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.3">
   <title>Registro – Mundo a la espalda</title>
   <link rel="stylesheet" href="style/style.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="script/storage.js" defer></script>
+  <script src="script/validators.js" defer></script>
+  <script src="script/auth.js" defer></script>
+  <script src="script/main.js" defer></script>
 </head>
 <body class="single">
 <!-- Cabecera compacta -->
@@ -47,55 +52,55 @@
   <form class="form-card" action="version-b.html" method="get">
     <div class="grid-2">
       <div>
-        <label for="nombre">Nombre</label>
-        <input id="nombre" name="nombre" required>
+  <label for="nombre">Nombre *</label>
+  <input id="nombre" name="nombre" minlength="3" placeholder="Mín. 3 caracteres" required>
       </div>
       <div>
-        <label for="apellidos">Apellidos</label>
-        <input id="apellidos" name="apellidos" required>
+  <label for="apellidos">Apellidos *</label>
+  <input id="apellidos" name="apellidos" placeholder="Dos apellidos" required>
       </div>
 
       <div>
-        <label for="email">Correo electrónico</label>
-        <input id="email" name="email" type="email" required>
+  <label for="email">Correo electrónico *</label>
+  <input id="email" name="email" type="email" required>
       </div>
       <div>
-        <label for="email2">Confirmación de correo</label>
-        <input id="email2" name="email2" type="email" required>
-      </div>
-
-      <div class="full">
-        <label for="fecha">Fecha de nacimiento</label>
-        <input id="fecha" name="fecha" type="date" required>
-      </div>
-
-      <div>
-        <label for="login">Login</label>
-        <input id="login" name="login" required>
-      </div>
-      <div>
-        <label for="pass">Password</label>
-        <input id="pass" name="pass" type="password" required>
+  <label for="email2">Confirmación de correo *</label>
+  <input id="email2" name="email2" type="email" required>
       </div>
 
       <div class="full">
-        <label for="foto" style="text-align:left;display:block;margin-bottom:.35rem">Subir imagen de perfil</label>
-        <input id="foto" name="foto" type="file" accept="image/*">
+  <label for="fecha">Fecha de nacimiento *</label>
+  <input id="fecha" name="fecha" type="date" required>
+      </div>
+
+      <div class="full">
+        <label for="login">Login *</label>
+  <input id="login" name="login" minlength="5" placeholder="Mín. 5 caracteres" required>
+      </div>
+      <div class="full">
+        <label for="pass">Password *</label>
+        <input id="pass" name="pass" type="password" placeholder="8+ con 2 números, 1 mayúscula, 1 minúscula, 1 especial" required>
+      </div>
+
+      <div class="full">
+  <label for="foto" class="file-label">Subir imagen de perfil * <small>(formatos: webp, png, jpg)</small></label>
+    <input id="foto" name="foto" type="file" accept="image/webp, image/png, image/jpeg,.webp,.png,.jpg,.jpeg" required>
       </div>
     </div>
 
     <div class="form-actions">
       <label class="chk">
-        <input type="checkbox" required> Acepto la
+        <input id="policy" type="checkbox" required> Acepto la *
         <a href="#">política de privacidad</a>
       </label>
 
-      <button class="btn submit" type="submit">Guardar datos y acceder</button>
+      <button id="submit-reg" class="btn submit" type="submit" disabled>Guardar datos y acceder</button>
     </div>
   </form>
 </main>
 <!-- Pie de página con newsletter y redes sociales -->
-<footer class="site-footer" style="font-size:2.2rem">
+<footer class="site-footer">
   <div class="footer-left">
   <small>© 2025 Mundo a la espalda</small>
   </div>
