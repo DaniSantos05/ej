@@ -1053,6 +1053,11 @@ html.page-a .form-card {
   font-size: 1em;
 }
 
+html.page-a input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);  /* Cambia el color del icono a blanco */
+  opacity: 0.9;
+}
+
 html.page-a .form-card input,
 html.page-a .form-card select,
 html.page-a .form-card textarea {
