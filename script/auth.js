@@ -7,7 +7,7 @@ const Auth = (() => {
 
   const saveUser = (user) => {
     Storage.setLocal(LS_USER_KEY, user);
-    // También guardamos en cookies para cumplir el enunciado (cookie o localStorage)
+    // También guardamos en cookies (cookie o localStorage)
     if (user?.login) Storage.setCookie(CK_LOGIN, user.login, 30);
     if (user?.pass) Storage.setCookie(CK_PASS, user.pass, 30);
   };

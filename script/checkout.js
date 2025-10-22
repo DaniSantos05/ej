@@ -1,4 +1,4 @@
-// Lógica de compra: precarga pack y validaciones del formulario
+// Lógica de compra: precarga del pack y validaciones del formulario
 const Checkout = (() => {
   const PACK_KEY = 'mae:selectedPack';
 
@@ -20,7 +20,7 @@ const Checkout = (() => {
   const attachForm = () => {
     const form = document.querySelector('.checkout-form');
     if (!form) return;
-    // Selector de fecha con días: fijar min y abrir con el botón
+    // Selector de fecha
     const cadInput = form.querySelector('#cad[type="date"]');
     const calBtn = form.querySelector('.cal-btn');
     if (cadInput) {

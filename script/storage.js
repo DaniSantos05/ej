@@ -1,5 +1,4 @@
 // Utilidades de almacenamiento: localStorage, sessionStorage y cookies
-// Se usan JSON.stringify/parse para objetos.
 
 const Storage = (() => {
   const setLocal = (k, v) => localStorage.setItem(k, typeof v === 'string' ? v : JSON.stringify(v));

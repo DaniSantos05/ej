@@ -9,7 +9,7 @@ const Tips = (() => {
     if (!ul) return;
     const tips = read();
     ul.innerHTML = '';
-    // Mostrar solo los 3 más recientes (guardados al inicio)
+    // Muestra solo los 3 más recientes (guardados al inicio)
     tips.slice(0, 3).forEach(t => {
       const li = document.createElement('li');
       const a = document.createElement('a');

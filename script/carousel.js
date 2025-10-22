@@ -2,9 +2,9 @@
 const Carousel = (() => {
   let timer = null;
   let fallbackTimer = null;
-  let index = 1;            // empezamos en 1 (tras clonar el último al principio)
-  let count = 0;            // número de ítems reales
-  let ul, items, container; // refs
+  let index = 1;            
+  let count = 0;            
+  let ul, items, container; 
 
   const sel = {
     root: '.carousel',
@@ -16,7 +16,6 @@ const Carousel = (() => {
   const intervalMs = 2000; // cambio cada 2s
 
   const setupLayout = () => {
-    // Forzar layout del track
     ul.style.display = 'flex';
     ul.style.gap = '0';
     ul.style.padding = '0';
@@ -29,7 +28,6 @@ const Carousel = (() => {
       li.style.maxWidth = '100%';
       li.style.margin = '0';
     });
-    // Contenedor recorta
     container.style.overflow = 'hidden';
   };
 
@@ -44,7 +42,6 @@ const Carousel = (() => {
     else ul.style.transition = 'transform 500ms ease';
     const x = -index * width();
     requestAnimationFrame(() => { ul.style.transform = `translateX(${x}px)`; });
-    // aria-hidden sólo para reales
     items.forEach((li, k) => li.setAttribute('aria-hidden', (k !== index) ? 'true' : 'false'));
   };
 
@@ -125,7 +122,7 @@ const Carousel = (() => {
     container = document.querySelector(sel.root) || ul.parentElement;
     if (!container) container = ul.parentElement || document.body;
 
-    // Si ya habíamos inicializado (por recarga in-page), no duplicar clones
+    // Si ya habíamos inicializado (por recarga in-page), no duplicar los clones
     // Reset: mover posibles clones y reconstruir
     const currentCards = ul.querySelectorAll('.card');
     if (currentCards.length > 3) {

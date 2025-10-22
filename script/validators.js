@@ -1,4 +1,4 @@
-// Validaciones comunes para formularios
+// Validacion para los formularios
 const Validators = (() => {
   const required = (v) => v != null && String(v).trim().length > 0;
   const minLen = (v, n) => String(v || '').trim().length >= n;
@@ -60,8 +60,6 @@ const Validators = (() => {
   };
 
   // No pasado por mes (>= mes actual). Acepta:
-  // - "YYYY-MM" (propio de <input type="month">)
-  // - "MM/YY" (texto estilo 08/30)
   const notPastMonth = (value) => {
     if (!value) return false;
     let year, month; // month: 1..12

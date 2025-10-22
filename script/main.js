@@ -146,13 +146,13 @@ const App = (() => {
       if (errors.length) { alert('Revisa: ' + errors.join(', ')); return; }
       const file = f.foto?.files?.[0];
       const proceed = () => {
-        Auth.saveUser(data); // guarda localStorage y cookies de login/pass
+        Auth.saveUser(data); // guardar localStorage y cookies de login/pass
         Storage.setSession('mae:loggedIn', true);
         alert('Registro guardado correctamente');
         window.location.href = 'version-b.html';
       };
       if (file) {
-        // Aceptar solo webp/png/jpg (comprobamos por MIME y, por compatibilidad, por extensión)
+        // Aceptar solo webp/png/jpg
         const okType = /image\/(webp|png|jpeg)/.test(file.type || '');
         const okExt = /\.(webp|png|jpe?g)$/i.test(file.name || '');
         if (!(okType || okExt)) { alert('Formato de imagen no permitido (webp, png, jpg)'); return; }
