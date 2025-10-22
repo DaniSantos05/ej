@@ -13,18 +13,14 @@
     9) Páginas y responsivo
 */
 
-  /* ============================
-   1) Variables y resets
-   - Colores globales y base
-   ============================ */
 /* 1) Variables y resets */
 :root {
   --bg: #0f172a;         /* azul muy oscuro */
   --panel: #0b1228;
   --text: #e6eaf2;
   --muted: #9aa3b2;
-  --brand: #22c55e;      /* verde botón */
-  --accent: #38bdf8;     /* cian para detalles */
+  --brand: #22c55e;      
+  --accent: #38bdf8;     
   --card: #101936;
   --border: #1f2a44;
 }

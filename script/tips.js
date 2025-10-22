@@ -3,7 +3,7 @@ const Tips = (() => {
   const KEY = 'mae:tips';
 
   const read = () => Array.isArray(Storage.getLocal(KEY)) ? Storage.getLocal(KEY) : [];
-  // Lee de remoto si está habilitado, con fallback a local
+  // Lee de remoto si está habilitado
   const readAsync = async (limit = 3) => {
     if (window.RemoteTips?.enabled) {
       const remote = await window.RemoteTips.read(limit);
@@ -49,7 +49,7 @@ const Tips = (() => {
       const tip = { id, title, text, at: Date.now() };
       list.unshift(tip);
       save(list);
-      // Intentar guardar también en remoto si está habilitado (sin bloquear la UI)
+      // Intentar guardar también en remoto si está habilitado 
       if (window.RemoteTips?.enabled) {
         window.RemoteTips.add(tip).catch(() => {});
       }
