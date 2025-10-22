@@ -13,7 +13,11 @@ const Tips = (() => {
     tips.slice(0, 3).forEach(t => {
       const li = document.createElement('li');
       const a = document.createElement('a');
-      a.href = `tip.html?id=${encodeURIComponent(t.id || '')}`;
+      // Enlace ficticio: mantener aspecto de link pero sin navegación real
+      a.href = '#';
+      a.addEventListener('click', (e) => e.preventDefault());
+      a.setAttribute('aria-disabled', 'true');
+      a.title = 'Vista de detalle no disponible';
       a.textContent = t.title;
       li.appendChild(a);
       ul.appendChild(li);
